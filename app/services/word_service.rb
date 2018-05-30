@@ -8,12 +8,14 @@ class WordService
     get_json("inflections/en/#{@word}")
   end
 
-  def get_json(url)
-    response ||= conn.get(url) do |request|
-    end
-    binding.pry
-  end
-
   private
-    attr_reader :word, :conn
-end
+    attr_reader :conn, :word
+
+    def get_json(url)
+      response ||= conn.get(url) do |request|
+        request.headers['app_id']   = ENV['APP_ID']
+        request.headers['app_key']  = ENV['APP_KEY']
+      end
+      JSON.parse(response.body, symbolize_names: true)
+    end
+  end

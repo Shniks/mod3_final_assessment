@@ -5,5 +5,6 @@ class WordPresenter
 
   def word
     raw_word ||= WordService.new(@input_word).word_search
+    binding.pry
   end
 end
