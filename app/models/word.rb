@@ -5,4 +5,8 @@ class Word
     @word   = attrs[:word]
     @root   = attrs[:root]
   end
+
+  def valid?
+    root.present?
+  end
 end
