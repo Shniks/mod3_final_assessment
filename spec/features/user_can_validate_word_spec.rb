@@ -1,9 +1,9 @@
 require 'rails_helper'
 
-describe 'As a guest user' do
+describe 'As a user' do
   describe 'When I visit the root path' do
-    describe 'And I fill in search box with a word and click on \'Validate Word\'' do
-      it 'I should see a message saying that the word is valid' do
+    describe 'And I fill in a text box with a valid word and click on \'Validate Word\'' do
+      scenario 'I should see a message that confirms that the word is valid' do
         VCR.use_cassette('validate_valid_word') do
           # When I visit "/"
           visit root_path
@@ -19,6 +19,7 @@ describe 'As a guest user' do
     end
   end
 end
+
 
 # As a guest user
 # When I visit "/"

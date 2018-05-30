@@ -15,7 +15,10 @@
         <%= link_to "ScrabbleWeb", root_url %>
       </div>
     </nav>
-
+    <%= form_tag :search, method: :get do %>
+      <%= text_field_tag :q %>
+      <%= submit_tag 'Validate Word' %>
+    <% end %>
     <%= yield %>
   </body>
 </html>
