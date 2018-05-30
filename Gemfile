@@ -13,12 +13,24 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
 gem 'jbuilder', '~> 2.5'
+gem 'faraday'
+gem 'figaro'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails'
   gem 'capybara'
   gem 'factory_bot_rails'
+  gem 'launchy'
+  gem 'database_cleaner'
+  gem 'pry'
+  gem 'shoulda-matchers'
+  gem 'simplecov'
+end
+
+group :test do
+  gem 'vcr'
+  gem 'webmock'
 end
 
 group :development do
