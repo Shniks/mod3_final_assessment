@@ -1,0 +1,5 @@
+<% if @word.valid? %>
+  <p>'<%= @word.word %>' is a valid word and its root form is '<%= @word.root %>'.</p>
+<% else %>
+  <p>'<%= @word.word %>' is not a valid word.</p>
+<% end %>
