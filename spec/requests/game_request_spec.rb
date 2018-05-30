@@ -7,8 +7,8 @@ describe 'As a user' do
         p1 = create(:user, name: 'Nikhil')
         p2 = create(:user, name: 'Sergio')
         game = Game.create(player_1: p1, player_2: p2)
-        p1.plays.create(game: game, word: 'hello')
-        p2.plays.create(game: game, word: 'bird')
+        p1.plays.create(game: game, word: 'hello', score: 15)
+        p2.plays.create(game: game, word: 'bird', score: 16)
 
         get "/api/v1/games/#{game.id}"
 
