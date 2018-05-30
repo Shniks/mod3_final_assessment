@@ -16,6 +16,14 @@ class WordService
         request.headers['app_id']   = ENV['APP_ID']
         request.headers['app_key']  = ENV['APP_KEY']
       end
-      JSON.parse(response.body, symbolize_names: true)
+      word_check(response)
+    end
+
+    def word_check(response)
+      if response.status == 200
+        JSON.parse(response.body, symbolize_names: true)
+      else
+        {warning: 'Word does not exist'}
+      end
     end
   end
