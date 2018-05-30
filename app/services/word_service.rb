@@ -23,7 +23,7 @@ class WordService
       if response.status == 200
         JSON.parse(response.body, symbolize_names: true)
       else
-        {warning: 'Word does not exist'}
+        {warning: 'Error: This word does not exist'}
       end
     end
   end
