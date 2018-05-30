@@ -15,9 +15,13 @@ class Api::V1::PlaysController < ApplicationController
 
     def word_check
       word = WordPresenter.new(play_params[:word]).word
+      check_if_word_valid(word)
+    end
+
+    def check_if_word_valid(word)
       unless word.valid?
         render json: { message: "#{play_params[:word]} is not a valid word."},
-                       status: 422
+        status: 422
       end
     end
 end
