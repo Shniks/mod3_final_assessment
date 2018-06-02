@@ -6,7 +6,7 @@ class Api::V1::PlaysController < ApplicationController
     play = game.plays.new(play_params)
     game.plays.last.score = play.score
     game.save
-    render json: game, status: :created
+    render json: play, status: :created
   end
 
   private
