@@ -2,10 +2,11 @@ class Api::V1::PlaysController < ApplicationController
   before_action :word_check
 
   def create
-    play = Play.new(play_params)
-    play.game_id = params[:game_id].to_i
-    play.save
-    render json: play, status: :created
+    game = Game.find(params[:game_id])
+    play = game.plays.new(play_params)
+    game.plays.last.score = play.score
+    game.save
+    render json: game, status: :created
   end
 
   private

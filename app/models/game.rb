@@ -9,12 +9,12 @@ class Game < ApplicationRecord
       game_id: self.id,
       scores: [
                {
-                user_id: self.plays.first[:user_id],
-                score: self.plays.first[:score]
+                user_id: self.player_1.id,
+                score: self.player_1.plays.sum(:score)
                 },
                 {
-                user_id: self.plays.last[:user_id],
-                score: self.plays.last[:score]
+                user_id: self.player_2.id,
+                score: self.player_2.plays.sum(:score)
                }
               ]
     }
